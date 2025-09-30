@@ -12,3 +12,10 @@ let choice = getComputerChoice()
         alert ("Scissors")
     }
 
+
+function getHumanChoice() {
+  let answer = prompt("Rock, Paper, Scissors?");
+    alert(`your answer is ${answer}!`);
+}
+
+getHumanChoice()
