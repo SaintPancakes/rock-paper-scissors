@@ -1,21 +1,76 @@
-function getComputerChoice(rps) {
-    return Math.floor(Math.random() * 3) + 1;
-}
+function getComputerChoice() {
+    const choice = Math.floor(Math.random() * 3) + 1;
 
-let choice = getComputerChoice()
 
     if (choice === 1) {
-        alert ("Rock");
+        return ("Rock");
     } else if (choice === 2) {
-        alert ("Paper");
+        return ("Paper");
     } else {
-        alert ("Scissors")
+        return ("Scissors")
     }
+}
 
 
 function getHumanChoice() {
   let answer = prompt("Rock, Paper, Scissors?");
-    alert(`your answer is ${answer}!`);
+  return answer.charAt(0).toUpperCase() + answer.slice(1).toLowerCase();
 }
 
-getHumanChoice()
+let humanScore = 0
+let computerScore = 0
+
+
+function playGround(humanSelection, computerSelection) {
+    if (computerSelection === "Rock") {
+        if (humanSelection === "Paper") {
+            alert ("You Win, Paper Beats Rock");
+            humanScore = (humanScore + 1);
+        } else if (humanSelection === "Scissors") {
+            alert ("You Lose, Rock Beats Scissors");
+            computerScore = (computerScore +1);
+        } else alert ("You draw, you both picked rock")
+        }
+    else if (computerSelection === "Paper") {
+        if (humanSelection === "Scissors") {
+            alert ("You Win, Scissors Beats Paper");
+            humanScore = (humanScore + 1);
+        }  else if (humanSelection === "Rock") {
+            alert ("You lose, Paper Beats Rock");
+            computerScore = (computerScore +1);
+        }  else alert ("You draw, you both picked Paper")
+        }
+    else if (computerSelection === "Scissors") {
+        if (humanSelection === "Rock") {
+            alert ("You Win, Rock Beats Scissors");
+            humanScore = (humanScore + 1)
+        }  else if (humanSelection === "Paper") {
+            alert ("You lose, Scissors Beats Paper");
+            computerScore = (computerScore +1);
+        }  else alert ("You draw, you both picked Scissors")
+        }
+    }
+        
+
+
+//console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+
+function playGame() {
+for (let i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playGround(humanSelection, computerSelection);
+    console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+}
+}
+
+
+playGame();
+
+if (humanScore > computerScore) {
+    alert ("You win!");
+    } else if (humanScore < computerScore) {
+        alert ("You lose!")
+    } else {
+        alert ("You draw!")
+    }
