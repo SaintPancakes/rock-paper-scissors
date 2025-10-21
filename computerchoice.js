@@ -30,16 +30,16 @@ function playGround(humanSelection, computerSelection) {
             alert ("You Lose, Rock Beats Scissors");
             computerScore = (computerScore +1);
         } else alert ("You draw, you both picked rock")
-        }
+    }
     else if (computerSelection === "Paper") {
         if (humanSelection === "Scissors") {
             alert ("You Win, Scissors Beats Paper");
-            humanScore = (humanScore + 1);
-        }  else if (humanSelection === "Rock") {
+            humanScore = (humanScore + 1);   
+        }   else if (humanSelection === "Rock") {
             alert ("You lose, Paper Beats Rock");
             computerScore = (computerScore +1);
         }  else alert ("You draw, you both picked Paper")
-        }
+    }
     else if (computerSelection === "Scissors") {
         if (humanSelection === "Rock") {
             alert ("You Win, Rock Beats Scissors");
@@ -48,12 +48,10 @@ function playGround(humanSelection, computerSelection) {
             alert ("You lose, Scissors Beats Paper");
             computerScore = (computerScore +1);
         }  else alert ("You draw, you both picked Scissors")
-        }
     }
+}
         
 
-
-//console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 
 function playGame() {
 for (let i = 0; i < 5; i++) {
